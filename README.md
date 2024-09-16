@@ -1,3 +1,4 @@
+
 ---
 
 # 🎉 Welcome to the Ultimate Discord Bot Experience! 🎉
@@ -7,7 +8,6 @@
 ## 🚀 Overview
 
 Meet **RinaBot**—your new best friend on Discord! RinaBot isn’t just any bot; it’s packed with features to make your Discord server lively and fun. Whether you want anime updates, manga insights, character information, or even some quirky AI chat, RinaBot’s got you covered!
-
 
 ## 🛠 Features
 
@@ -23,7 +23,6 @@ Meet **RinaBot**—your new best friend on Discord! RinaBot isn’t just any bot
 
 - **📸 Image Magic**
   - Send an image, and RinaBot will download it and generate a snazzy caption for it. Perfect for spicing up your server with some visual flair!
-
 
 ## 🛠 Work in Progress
 
@@ -57,7 +56,7 @@ Meet **RinaBot**—your new best friend on Discord! RinaBot isn’t just any bot
    ```
 
 3. **Configure Your Token**:
-   - Set up your Discord bot token in `apicode.py` and replace the placeholder values.
+   - Set up your Discord bot token in `apicode.py`. Replace the placeholder values with your actual API keys and tokens.
 
 4. **Run the Bot**:
    ```bash
@@ -65,7 +64,6 @@ Meet **RinaBot**—your new best friend on Discord! RinaBot isn’t just any bot
    ```
 
 5. **Enjoy**: Join your Discord server and start using RinaBot’s commands. Watch your server come to life!
-
 
 ## 📝 Notes
 
@@ -86,7 +84,6 @@ Got ideas for new features or improvements? We’re all ears! Fork the repo, mak
 ## 💬 Feature Suggestions
 
 Got an idea that could make RinaBot even cooler? Don’t keep it to yourself! Share your thoughts, and let’s make RinaBot the ultimate Discord sidekick. Maybe a mini-game or a custom meme generator? The sky’s the limit!
-
 
 ## 📧 Contact
 
