@@ -1,10 +1,8 @@
-Sure! Adding GIFs to a README can make it more engaging. Here’s how you might incorporate GIFs into your README to make it more fun and visually appealing:
-
 ---
 
 # 🎉 Welcome to the Ultimate Discord Bot Experience! 🎉
 
-![RinaBot]()
+![RinaBot](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNDB5Yjlqa3F2dWFnNmlpemozMGJpbHNodWgxbWVpaHF4NGRicDdyayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/h5osyQ0PLpfELctNIi/giphy.gif)
 
 ## 🚀 Overview
 
