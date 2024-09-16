@@ -47,7 +47,7 @@ Meet **RinaBot**—your new best friend on Discord! RinaBot isn’t just any bot
 1. **Clone the Repo**:
    ```bash
    git clone https://github.com/yourusername/rinabot.git
-   cd rinabot
+   cd Rina-s-Realm
    ```
 
 2. **Install Dependencies**:
