@@ -78,6 +78,6 @@ Got an idea that could make RinaBot even cooler? Don’t keep it to yourself! Sh
 
 ## 📧 Contact
 
-If you have any questions, want to chat, or just want to share your thoughts, feel free to reach out at [your-email@example.com](mailto:your-email@example.com).
+If you have any questions, want to chat, or just want to share your thoughts, feel free to reach out at [kiyo](notgogaly.exe@proton.me).
 
 Happy Discord-ing! 🚀
