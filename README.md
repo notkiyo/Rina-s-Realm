@@ -1,8 +1,16 @@
+Sure! Adding GIFs to a README can make it more engaging. Here’s how you might incorporate GIFs into your README to make it more fun and visually appealing:
+
+---
+
 # 🎉 Welcome to the Ultimate Discord Bot Experience! 🎉
+
+![RinaBot](https://media.giphy.com/media/3o7aD2fRZl0sKNKhkc/giphy.gif) 
 
 ## 🚀 Overview
 
 Meet **RinaBot**—your new best friend on Discord! RinaBot isn’t just any bot; it’s packed with features to make your Discord server lively and fun. Whether you want anime updates, manga insights, character information, or even some quirky AI chat, RinaBot’s got you covered!
+
+![Anime Fun](https://media.giphy.com/media/xUPGcjq9OTc2Fs9rsc/giphy.gif)
 
 ## 🛠 Features
 
@@ -19,9 +27,13 @@ Meet **RinaBot**—your new best friend on Discord! RinaBot isn’t just any bot
 - **📸 Image Magic**
   - Send an image, and RinaBot will download it and generate a snazzy caption for it. Perfect for spicing up your server with some visual flair!
 
+![Image Captioning](https://media.giphy.com/media/3o6fJ8dK1zEwIc2LMU/giphy.gif)
+
 ## 🛠 Work in Progress
 
 - **Sender Component**: The magic behind sending messages isn’t quite ready yet! We’re still learning how to build this part and will be adding it soon. So, stay tuned—things are about to get even more exciting!
+
+![In Progress](https://media.giphy.com/media/xUPGcTZjA0ZlbSKFgE/giphy.gif)
 
 ## 🏗️ How It Works
 
@@ -32,6 +44,8 @@ Meet **RinaBot**—your new best friend on Discord! RinaBot isn’t just any bot
 3. **Process Images**: Share images and let RinaBot work its magic by generating captions and keeping your community engaged with fun content.
 
 4. **AI Interaction**: Chat with Rina and enjoy some light-hearted banter with our Character AI. Who knows what Rina might say next?
+
+![How It Works](https://media.giphy.com/media/xT9IgG50Fb7Mi0pr4E/giphy.gif)
 
 ## 🚀 Getting Started
 
@@ -56,6 +70,8 @@ Meet **RinaBot**—your new best friend on Discord! RinaBot isn’t just any bot
 
 5. **Enjoy**: Join your Discord server and start using RinaBot’s commands. Watch your server come to life!
 
+![Getting Started](https://media.giphy.com/media/3ohs4pA6s97jJe1zHW/giphy.gif)
+
 ## 📝 Notes
 
 - **In Progress**: This project is still a work in progress. The sender component is under construction, and we’re actively learning and refining it. Keep an eye out for updates!
@@ -64,6 +80,8 @@ Meet **RinaBot**—your new best friend on Discord! RinaBot isn’t just any bot
 ## 📚 Contributing
 
 Got ideas for new features or improvements? We’re all ears! Fork the repo, make your changes, and submit a pull request. If you have a wild idea or a genius suggestion, let us know!
+
+![Contributing](https://media.giphy.com/media/l0HlH5vx6j9XslnsM/giphy.gif)
 
 ## 🥳 Acknowledgments
 
@@ -76,8 +94,14 @@ Got ideas for new features or improvements? We’re all ears! Fork the repo, mak
 
 Got an idea that could make RinaBot even cooler? Don’t keep it to yourself! Share your thoughts, and let’s make RinaBot the ultimate Discord sidekick. Maybe a mini-game or a custom meme generator? The sky’s the limit!
 
+![Feature Suggestions](https://media.giphy.com/media/3o7abln7sbq8HtENMy/giphy.gif)
+
 ## 📧 Contact
 
-If you have any questions, want to chat, or just want to share your thoughts, feel free to reach out at [kiyo](notgogaly.exe@proton.me).
+If you have any questions, want to chat, or just want to share your thoughts, feel free to reach out at [notgogaly.exe@proton.me](mailto:notgogaly.exe@proton.me).
 
 Happy Discord-ing! 🚀
+
+---
+
+Feel free to tweak or adjust the GIFs and text to better suit your style or add any more details you think would be fun!
