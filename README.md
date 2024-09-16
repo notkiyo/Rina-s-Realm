@@ -4,7 +4,7 @@ Sure! Adding GIFs to a README can make it more engaging. Here’s how you might 
 
 # 🎉 Welcome to the Ultimate Discord Bot Experience! 🎉
 
-![RinaBot](https://media.giphy.com/media/3o7aD2fRZl0sKNKhkc/giphy.gif) 
+![RinaBot]((https://tenor.com/search/lucky-star-gifs))
 
 ## 🚀 Overview
 
