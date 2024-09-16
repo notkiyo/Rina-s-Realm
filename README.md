@@ -92,6 +92,10 @@ Got an idea that could make RinaBot even cooler? Don’t keep it to yourself! Sh
 
 If you have any questions, want to chat, or just want to share your thoughts, feel free to reach out at [notgogaly.exe@proton.me](mailto:notgogaly.exe@proton.me).
 
+## 📜 License
+
+This project is licensed under the Creative Commons Attribution 4.0 International License. You are free to share, remix, and build upon this work, even for commercial purposes, as long as you provide appropriate credit. For more details, check out the full license text [here](https://creativecommons.org/licenses/by/4.0/).
+
 Happy Discord-ing! 🚀
 
 ![Contributing](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExbzZldWg3NTBxOW1ld3kydDMwZmx0MHJkY3BjaXMybzEzNjE3Y3llNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/UR4cvwP8NEZ5aR2YPU/giphy.gif)
