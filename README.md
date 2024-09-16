@@ -4,13 +4,12 @@ Sure! Adding GIFs to a README can make it more engaging. Here’s how you might 
 
 # 🎉 Welcome to the Ultimate Discord Bot Experience! 🎉
 
-![RinaBot](https://tenor.com/view/hyper-anime-lucky-star-izumi-konata-izumi-gif-20051187)
+![RinaBot]()
 
 ## 🚀 Overview
 
 Meet **RinaBot**—your new best friend on Discord! RinaBot isn’t just any bot; it’s packed with features to make your Discord server lively and fun. Whether you want anime updates, manga insights, character information, or even some quirky AI chat, RinaBot’s got you covered!
 
-![Anime Fun](https://media.giphy.com/media/xUPGcjq9OTc2Fs9rsc/giphy.gif)
 
 ## 🛠 Features
 
@@ -27,7 +26,6 @@ Meet **RinaBot**—your new best friend on Discord! RinaBot isn’t just any bot
 - **📸 Image Magic**
   - Send an image, and RinaBot will download it and generate a snazzy caption for it. Perfect for spicing up your server with some visual flair!
 
-![Image Captioning](https://media.giphy.com/media/3o6fJ8dK1zEwIc2LMU/giphy.gif)
 
 ## 🛠 Work in Progress
 
@@ -70,7 +68,6 @@ Meet **RinaBot**—your new best friend on Discord! RinaBot isn’t just any bot
 
 5. **Enjoy**: Join your Discord server and start using RinaBot’s commands. Watch your server come to life!
 
-![Getting Started](https://media.giphy.com/media/3ohs4pA6s97jJe1zHW/giphy.gif)
 
 ## 📝 Notes
 
@@ -94,7 +91,6 @@ Got ideas for new features or improvements? We’re all ears! Fork the repo, mak
 
 Got an idea that could make RinaBot even cooler? Don’t keep it to yourself! Share your thoughts, and let’s make RinaBot the ultimate Discord sidekick. Maybe a mini-game or a custom meme generator? The sky’s the limit!
 
-![Feature Suggestions](https://media.giphy.com/media/3o7abln7sbq8HtENMy/giphy.gif)
 
 ## 📧 Contact
 
@@ -103,5 +99,3 @@ If you have any questions, want to chat, or just want to share your thoughts, fe
 Happy Discord-ing! 🚀
 
 ---
-
-Feel free to tweak or adjust the GIFs and text to better suit your style or add any more details you think would be fun!
