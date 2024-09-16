@@ -43,25 +43,28 @@ class CommandHandler:
         if command in self.handlers:
             await self.handlers[command](args)
         else:
-            print(f"{RED}Unknown command: {command}{RESET}")
+            await print_response("unknown_command", f"Unknown command: {command}")
 
     async def handle_anime(self, args):
         """
         Handle the -anime command.
         """
         self.anilist_handler.print_anime_info(args)
+        await print_response("anime_info", f"Fetched anime info for: {args}")
 
     async def handle_manga(self, args):
         """
         Handle the -manga command.
         """
         self.anilist_handler.print_manga_info(args)
+        await print_response("manga_info", f"Fetched manga info for: {args}")
 
     async def handle_character(self, args):
         """
         Handle the -character command.
         """
         self.anilist_handler.print_character_info(args)
+        await print_response("character_info", f"Fetched character info for: {args}")
 
     async def handle_rina(self, args):
         """
@@ -70,7 +73,7 @@ class CommandHandler:
         rina_ai = AIPart('gc6qOU5zms07_eFoWdGWKCUlGxmHEVIBj33ZhNfUxY0', aiclient)  # Assuming correct character ID and API key
         await rina_ai.initialize_chat()  # Initialize the AI chat session
         response = await rina_ai.process_incoming_message(args)
-        print(f"Rina: {response}")  # Output Rina's response in the console
+        await print_response("rina_response", f"Rina: {response}")  # Output Rina's response in the console
 
 
 class AIPart:
@@ -92,7 +95,7 @@ class AIPart:
         new, answer = await chat.new_chat(self.char, me.id)
         self.chat = chat
         self.chat_id = new.chat_id
-        print(f'{BLACK}{answer.name}: {answer.text}{RESET}')
+        await print_response("chat_init", f'{answer.name}: {answer.text}')
 
     async def handle_message(self, text):
         """
@@ -133,7 +136,7 @@ async def heartbeat(ws, interval):
     """
     Send a heartbeat to the WebSocket server to keep the connection alive.
     """
-    print(f'{CYAN}Heartbeat begin{RESET}')
+    await print_response("heartbeat", "Heartbeat begin")
     while True:
         await asyncio.sleep(interval)
         heartbeatJSON = {
@@ -141,7 +144,7 @@ async def heartbeat(ws, interval):
             "d": None
         }
         await get_json_request(ws, heartbeatJSON)
-        print(f"{GREEN}Heartbeat sent{RESET}")
+        await print_response("heartbeat", "Heartbeat sent")
 
 
 async def connect():
@@ -149,7 +152,7 @@ async def connect():
     Connect to the WebSocket server and start the event loop.
     """
     async with websockets.connect(ws_url) as ws:
-        print(f'{CYAN}WebSocket connected{RESET}')
+        await print_response("websocket", "WebSocket connected")
 
         event = await got_json_response(ws)
         if event and event.get('op') == 10:
@@ -176,18 +179,18 @@ async def handle_image_attachment(image_url):
     """
     Handle an image attachment by downloading it and generating a caption.
     """
-    print(f"{CYAN}Image URL: {image_url}{RESET}")
+    await print_response("image_url", f"Image URL: {image_url}")
 
     # Download the image
     image_path = await download_image(image_url)
-    print(f"{GREEN}Image downloaded to {image_path}{RESET}")
+    await print_response("image_download", f"Image downloaded to {image_path}")
 
     # Generate the caption
     caption = image_captioning.generate_caption(image_path)
     if caption:
-        return f"{YELLOW}Generated Caption: {caption}{RESET}"
+        await print_response("image_caption", f"Generated Caption: {caption}")
     else:
-        return f"{RED}Failed to generate caption.{RESET}"
+        await print_response("image_caption", "Failed to generate caption.")
 
 
 async def download_image(image_url, filename="image.png"):
@@ -215,14 +218,13 @@ async def event_loop(ws):
             content = event['d']['content']
             attachments = event['d']['attachments']
 
-            print(f"{CYAN}{author}: {content}{RESET}")
+            await print_response("message_create", f"{author}: {content}")
 
             # Check if there are attachments (images)
             if attachments:
                 for attachment in attachments:
                     if attachment['content_type'].startswith('image'):
-                        caption = await handle_image_attachment(attachment['url'])
-                        print(caption)
+                        await handle_image_attachment(attachment['url'])
 
             # Handle commands only if content starts with a recognized command
             if content:
@@ -233,5 +235,15 @@ async def event_loop(ws):
                     await command_handler.handle_command(command, args)
 
 
+# Centralized function to print responses
+async def print_response(tag, message):
+    """
+    Centralized function for printing responses based on a tag.
+    """
+    print(f"{tag.upper()}: {message}")
+
+
 if __name__ == "__main__":
+    asyncio.run(connect())
+
     asyncio.run(connect())
