@@ -1,6 +1,6 @@
-token = 'MTI1NTIwMDk4ODcyMjEwMjMwNA.GHGMlD.5eXRX-OdH3fs5zAAjdDQr4wKx8loyZZBUI-I0M' # add your discord token
+token = '' # add your discord token
 
-aiclient =('9ab23df7903a00e7d5b0b7ad79da16c0f8a057e1') # Add your c.ai API key here
+aiclient =('') # Add your c.ai API key here
 
 
 # if you dont knoe how to 
