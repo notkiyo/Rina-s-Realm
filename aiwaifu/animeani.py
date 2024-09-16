@@ -13,15 +13,15 @@ class AnilistHandler:
         return re.sub(clean, '', text)
     
     def print_anime_info(self, name):
-        anime_info = self.anilist.get_anime_info(name)  # Assuming get_anime_info returns HTML or raw text
+        anime_info = self.anilist.get_anime_info(name)  # Assuming returns HTML or raw text
         return self.remove_html_tags(anime_info)
 
     def print_manga_info(self, name):
-        manga_info = self.anilist.get_manga_info(name)  # Assuming get_manga_info returns HTML or raw text
+        manga_info = self.anilist.get_manga_info(name)  # Assuming  returns HTML or raw text
         return self.remove_html_tags(manga_info)
 
     def print_character_info(self, name):
-        # Add the method for characters if it exists in the Anilist API
-        character_info = self.anilist.get_character_info(name)  # Assuming get_character_info returns HTML or raw text
+        character_info = self.anilist.get_character_info(name)  # Assuming  returns HTML or raw text
         return self.remove_html_tags(character_info)
+
 
