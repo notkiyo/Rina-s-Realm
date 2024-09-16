@@ -46,7 +46,7 @@ Meet **RinaBot**—your new best friend on Discord! RinaBot isn’t just any bot
 
 1. **Clone the Repo**:
    ```bash
-   git clone https://github.com/yourusername/rinabot.git
+   git clone https://github.com/notkiyo/Rina-s-Realm.git
    cd Rina-s-Realm
    ```
 
