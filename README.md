@@ -48,6 +48,7 @@ Meet **RinaBot**—your new best friend on Discord! RinaBot isn’t just any bot
    ```bash
    git clone https://github.com/notkiyo/Rina-s-Realm.git
    cd Rina-s-Realm
+   cd aiwaifu
    ```
 
 2. **Install Dependencies**:
