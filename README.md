@@ -94,6 +94,6 @@ If you have any questions, want to chat, or just want to share your thoughts, fe
 
 Happy Discord-ing! 🚀
 
-![Contributing](hhttps://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExbzZldWg3NTBxOW1ld3kydDMwZmx0MHJkY3BjaXMybzEzNjE3Y3llNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/UR4cvwP8NEZ5aR2YPU/giphy.gifttps://media.giphy.com/media/l0HlH5vx6j9XslnsM/giphy.gif)
+![Contributing](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExbzZldWg3NTBxOW1ld3kydDMwZmx0MHJkY3BjaXMybzEzNjE3Y3llNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/UR4cvwP8NEZ5aR2YPU/giphy.gif)
 
 ---
