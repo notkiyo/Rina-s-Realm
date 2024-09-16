@@ -4,7 +4,7 @@ Sure! Adding GIFs to a README can make it more engaging. Here’s how you might 
 
 # 🎉 Welcome to the Ultimate Discord Bot Experience! 🎉
 
-![RinaBot](https://tenor.com/search/lucky-star-gifs)
+![RinaBot]<div class="tenor-gif-embed" data-postid="20051187" data-share-method="host" data-aspect-ratio="1.20301" data-width="100%"><a href="https://tenor.com/view/hyper-anime-lucky-star-izumi-konata-izumi-gif-20051187">Hyper Anime GIF</a>from <a href="https://tenor.com/search/hyper-gifs">Hyper GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
 
 ## 🚀 Overview
 
