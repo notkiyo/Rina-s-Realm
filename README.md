@@ -29,7 +29,7 @@ Meet **RinaBot**—your new best friend on Discord! RinaBot isn’t just any bot
 
 - **Sender Component**: The magic behind sending messages isn’t quite ready yet! We’re still learning how to build this part and will be adding it soon. So, stay tuned—things are about to get even more exciting!
 
-![In Progress](https://media.giphy.com/media/xUPGcTZjA0ZlbSKFgE/giphy.gif)
+![In Progress](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjFrbXlmb24xMzI0eGlpeWptYm93M2w2NmwyOGkwbWxqeTVlNHZlZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Apou9x4qiaDdGs6R9W/giphy.gif)
 
 ## 🏗️ How It Works
 
@@ -41,7 +41,7 @@ Meet **RinaBot**—your new best friend on Discord! RinaBot isn’t just any bot
 
 4. **AI Interaction**: Chat with Rina and enjoy some light-hearted banter with our Character AI. Who knows what Rina might say next?
 
-![How It Works](https://media.giphy.com/media/xT9IgG50Fb7Mi0pr4E/giphy.gif)
+![How It Works](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExb2JjN3U0NHZuenVjcXQ3c2hvd2J4cGp2NHNobTlzb2xocDVhMHJwNCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/bMzhPASPFNJORLgUuE/giphy.gif)
 
 ## 🚀 Getting Started
 
@@ -76,8 +76,6 @@ Meet **RinaBot**—your new best friend on Discord! RinaBot isn’t just any bot
 
 Got ideas for new features or improvements? We’re all ears! Fork the repo, make your changes, and submit a pull request. If you have a wild idea or a genius suggestion, let us know!
 
-![Contributing](https://media.giphy.com/media/l0HlH5vx6j9XslnsM/giphy.gif)
-
 ## 🥳 Acknowledgments
 
 - **Character AI**: For making RinaBot’s chat possible.
@@ -95,5 +93,7 @@ Got an idea that could make RinaBot even cooler? Don’t keep it to yourself! Sh
 If you have any questions, want to chat, or just want to share your thoughts, feel free to reach out at [notgogaly.exe@proton.me](mailto:notgogaly.exe@proton.me).
 
 Happy Discord-ing! 🚀
+
+![Contributing](hhttps://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExbzZldWg3NTBxOW1ld3kydDMwZmx0MHJkY3BjaXMybzEzNjE3Y3llNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/UR4cvwP8NEZ5aR2YPU/giphy.gifttps://media.giphy.com/media/l0HlH5vx6j9XslnsM/giphy.gif)
 
 ---
