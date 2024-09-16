@@ -13,3 +13,4 @@ tokenizers==0.19.1
 torch==2.4.1
 transformers==4.44.2
 websockets==13.0.1
+aiohttp
