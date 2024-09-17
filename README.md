@@ -26,7 +26,8 @@ Meet **RinaBot**—your new best friend on Discord! RinaBot isn’t just any bot
 
 ## 🛠 Work in Progress
 
-- **Sender Component**: The magic behind sending messages isn’t quite ready yet! We’re still learning how to build this part and will be adding it soon. So, stay tuned—things are about to get even more exciting!
+- **Sender Component**: the sender component is now functional! but the ai restart every conv for some reason lol
+
 
 ![In Progress](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjFrbXlmb24xMzI0eGlpeWptYm93M2w2NmwyOGkwbWxqeTVlNHZlZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Apou9x4qiaDdGs6R9W/giphy.gif)
 
