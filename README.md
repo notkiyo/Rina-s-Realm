@@ -27,7 +27,7 @@ Meet **RinaBot**—your new best friend on Discord! RinaBot isn’t just any bot
 ## 🛠 Work in Progress
 
 - **Sender Component**: the sender component is now functional! but the ai restart every conv for some reason lol
-
+![qucklook](https://files.catbox.moe/3oit0e.png)
 
 ![In Progress](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjFrbXlmb24xMzI0eGlpeWptYm93M2w2NmwyOGkwbWxqeTVlNHZlZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Apou9x4qiaDdGs6R9W/giphy.gif)
 
