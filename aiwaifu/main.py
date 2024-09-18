@@ -2,6 +2,7 @@ import json
 import asyncio
 import aiohttp
 import requests
+import re
 import websockets
 from characterai import aiocai
 from apicode import aiclient, token
@@ -26,6 +27,10 @@ class AnilistHandler:
     def __init__(self):
         self.url = 'https://graphql.anilist.co'
 
+    def strip_html_tags(self, text):
+        clean = re.compile('<.*?>')
+        return re.sub(clean, '', text)
+
     def get_anime_description(self, name):
         query = '''
         query ($name: String!) {
@@ -39,7 +44,7 @@ class AnilistHandler:
         if response.status_code == 200:
             data = response.json()
             description = data.get('data', {}).get('Media', {}).get('description', 'No description available')
-            return description
+            return self.strip_html_tags(description)
         else:
             return f"Error fetching anime description: {response.status_code}"
 
@@ -56,7 +61,7 @@ class AnilistHandler:
         if response.status_code == 200:
             data = response.json()
             description = data.get('data', {}).get('Media', {}).get('description', 'No description available')
-            return description
+            return self.strip_html_tags(description)
         else:
             return f"Error fetching manga description: {response.status_code}"
 
@@ -73,9 +78,61 @@ class AnilistHandler:
         if response.status_code == 200:
             data = response.json()
             description = data.get('data', {}).get('Character', {}).get('description', 'No description available')
-            return description
+            return self.strip_html_tags(description)
         else:
             return f"Error fetching character description: {response.status_code}"
+
+    def get_anime_details(self, name):
+        query = '''
+        query ($name: String!) {
+            Media(search: $name, type: ANIME) {
+                description
+                averageScore
+                status
+            }
+        }
+        '''
+        variables = {'name': name}
+        response = requests.post(self.url, json={'query': query, 'variables': variables})
+        if response.status_code == 200:
+            data = response.json()
+            details = data.get('data', {}).get('Media', {})
+            description = details.get('description', 'No description available')
+            average_score = details.get('averageScore', 'No average score available')
+            status = details.get('status', 'No status available')
+            return {
+                'description': self.strip_html_tags(description),
+                'averageScore': average_score,
+                'status': status
+            }
+        else:
+            return f"Error fetching anime details: {response.status_code}"
+
+    def get_manga_details(self, name):
+        query = '''
+        query ($name: String!) {
+            Media(search: $name, type: MANGA) {
+                description
+                averageScore
+                status
+            }
+        }
+        '''
+        variables = {'name': name}
+        response = requests.post(self.url, json={'query': query, 'variables': variables})
+        if response.status_code == 200:
+            data = response.json()
+            details = data.get('data', {}).get('Media', {})
+            description = details.get('description', 'No description available')
+            average_score = details.get('averageScore', 'No average score available')
+            status = details.get('status', 'No status available')
+            return {
+                'description': self.strip_html_tags(description),
+                'averageScore': average_score,
+                'status': status
+            }
+        else:
+            return f"Error fetching manga details: {response.status_code}"
 
 class CommandHandler:
     def __init__(self, discord_sender):
@@ -96,8 +153,16 @@ class CommandHandler:
 
     async def handle_anime(self, args):
         if args:
-            anime_description = self.anilist_handler.get_anime_description(args)
-            self.discord_sender.send_tagged_message("anime_info", anime_description)
+            anime_details = self.anilist_handler.get_anime_details(args)
+            if isinstance(anime_details, dict):
+                response = (
+                    f"Fetched anime info for: {anime_details['description']}\n"
+                    f"Average Score: {anime_details['averageScore']}\n"
+                    f"Status: {anime_details['status']}"
+                )
+            else:
+                response = anime_details
+            self.discord_sender.send_tagged_message("anime_info", response)
         else:
             self.discord_sender.send_tagged_message("anime_info", "No anime name provided.")
 
@@ -139,7 +204,6 @@ class AIPart:
         self.chat_id = new.chat_id
         self.initialized = True  # Set flag to True
         await print_response("chat_init", f'{answer.name}: {answer.text}')
-
 
     async def handle_message(self, text):
         try:
@@ -241,10 +305,9 @@ async def event_loop(ws):
 
                 await command_handler.handle_command(command, args)
 
-
 class DiscordSender:
     def __init__(self, bot_token):
-        self.url = f'https://discord.com/api/v10/channels/741223003261763646/messages'  
+        self.url = f'https://discord.com/api/v10/channels/741223003261763646/messages'
         self.headers = {
             'Authorization': token,
             'Content-Type': 'application/json'
@@ -290,10 +353,9 @@ async def print_response(tag, message):
         "rina_response": GREEN,
         "error": RED
     }
-    
+
     color = color_map.get(tag, RESET)
     print(f"{color}{tag.upper()}: {message}{RESET}")
-
 
 if __name__ == "__main__":
     asyncio.run(connect())
