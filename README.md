@@ -76,8 +76,6 @@ it need some more work to run but main thing work without any problem
 - **Modular Design**: Some functionality is separated into standalone Python files for better organization and modularity. Check out `apicode.py`, `imagetotext.py`, and `animeani.py` for more details.
 
 
-Sure! Here’s an updated section you can add to your README for adding new handlers and features, including the weather handler example:
-
 ---
 
 ## 🛠 Adding New Handlers and Features
@@ -139,6 +137,8 @@ class CommandHandler:
 ```
 
 Now, your bot will handle `-weather` commands and send weather updates to your Discord channel using the `send_tagged_message` method!
+
+---
 
 
 ## 📚 Contributing
