@@ -75,7 +75,8 @@ it need some more work to run but main thing work without any problem
 - **In Progress**: This project is still a work in progress. The sender component is under construction, and we’re actively learning and refining it. Keep an eye out for updates!
 - **Modular Design**: Some functionality is separated into standalone Python files for better organization and modularity. Check out `apicode.py`, `imagetotext.py`, and `animeani.py` for more details.
 
-6. ## 🛠 Adding New Handlers and Features
+
+ ## 🛠 Adding New Handlers and Features
 
   To make RinaBot even more versatile, you can easily add new handlers or functionalities. Here's a quick guide on how to do that:
 
