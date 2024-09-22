@@ -76,71 +76,70 @@ it need some more work to run but main thing work without any problem
 - **Modular Design**: Some functionality is separated into standalone Python files for better organization and modularity. Check out `apicode.py`, `imagetotext.py`, and `animeani.py` for more details.
 
 
- ## 🛠 Adding New Handlers and Features
+Sure! Here’s an updated section you can add to your README for adding new handlers and features, including the weather handler example:
 
-  To make RinaBot even more versatile, you can easily add new handlers or functionalities. Here's a quick guide on how to do that:
+---
 
-  ### 1. Create a New Handler
+## 🛠 Adding New Handlers and Features
 
-  Start by creating a new Python file in the `handlers` directory, or modify an existing one.
+To make RinaBot even more versatile, you can easily add new handlers or functionalities. Here's a quick guide on how to do that:
 
-  For example, if you're adding a new handler to fetch weather updates, you could create a `weather_handler.py` file with the following code:
-  
-  ```python
-  class WeatherHandler:
-      def __init__(self):
-          pass
-  
-      async def handle_weather(self, location):
-          # Code to fetch weather data goes here
-          weather_info = fetch_weather_data(location)
-          return weather_info
-  ```
-  
-  ### 2. Integrate the Handler with `send_tagged_message`
-  
-  To make use of `send_tagged_message` and send results to Discord, you can modify your handler's response flow. For instance, in the same `weather_handler.py`:
-  
-  ```python
-  class WeatherHandler:
-      def __init__(self, discord_sender):
-          self.discord_sender = discord_sender
-  
-      async def handle_weather(self, location, channel_id):
-          weather_info = fetch_weather_data(location)
-          tagged_message = f"🌤 Weather Update for {location}: {weather_info}"
-          
-          # Use send_tagged_message to send this message to a Discord channel
-          await self.discord_sender.send_tagged_message(tagged_message, channel_id)
-  ```
-  
-  ### 3. Modify `DiscordSender` to Handle New Tags
-  
-  In your `discord_sender.py`, ensure that the `send_tagged_message` function can handle your new type of message tags:
-  
-  ```python
-  class DiscordSender:
-      async def send_tagged_message(self, message, channel_id):
-          # Sending the message to the Discord channel using WebSocket or Discord API
-          await self.send_message(message, channel_id)
-  ```
-  
-  ### 4. Update the Command Handler
-  
-  Finally, update the `CommandHandler` class in `command_handler.py` to include the new handler command. For example, if your weather command is `-weather`, you would add it like so:
-  
-  ```python
-  class CommandHandler:
-      def __init__(self, weather_handler):
-          self.weather_handler = weather_handler
-  
-      async def handle_command(self, command, args, channel_id):
-          if command == '-weather':
-              location = ' '.join(args)
-              await self.weather_handler.handle_weather(location, channel_id)
-  ```
-  
-  Now, your bot will handle `-weather` commands and send weather updates to your Discord channel using the `send_tagged_message` method!
+### 1. Create a New Handler
+
+Start by creating a new Python file in the `handlers` directory, or modify an existing one.
+
+For example, if you're adding a new handler to fetch weather updates, create a `weather_handler.py` file with the following code:
+
+```python
+class WeatherHandler:
+    def __init__(self, discord_sender):
+        self.discord_sender = discord_sender
+
+    async def handle_weather(self, location, channel_id):
+        # Code to fetch weather data goes here
+        weather_info = await self.fetch_weather_data(location)
+        tagged_message = f"🌤 Weather Update for {location}: {weather_info}"
+
+        # Use send_tagged_message to send this message to a Discord channel
+        await self.discord_sender.send_tagged_message(tagged_message, channel_id)
+
+    async def fetch_weather_data(self, location):
+        # Implement your logic to fetch weather data
+        return "Sunny, 25°C"  # Example response
+```
+
+### 2. Integrate the Handler with `send_tagged_message`
+
+To make use of `send_tagged_message` and send results to Discord, modify your handler's response flow, as shown in the example above.
+
+### 3. Modify `DiscordSender` to Handle New Tags
+
+In your `discord_sender.py`, ensure that the `send_tagged_message` function can handle your new type of message tags:
+
+```python
+class DiscordSender:
+    async def send_tagged_message(self, message, channel_id):
+        # Sending the message to the Discord channel using WebSocket or Discord API
+        await self.send_message(message, channel_id)
+```
+
+### 4. Update the Command Handler
+
+Finally, update the `CommandHandler` class in `command_handler.py` to include the new handler command. For example, if your weather command is `-weather`, add it like this:
+
+```python
+class CommandHandler:
+    def __init__(self, weather_handler):
+        self.weather_handler = weather_handler
+
+    async def handle_command(self, command, args, channel_id):
+        if command == '-weather':
+            location = ' '.join(args)
+            await self.weather_handler.handle_weather(location, channel_id)
+```
+
+Now, your bot will handle `-weather` commands and send weather updates to your Discord channel using the `send_tagged_message` method!
+
 
 ## 📚 Contributing
 
