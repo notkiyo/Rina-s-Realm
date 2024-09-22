@@ -5,12 +5,12 @@ import requests
 import re
 import websockets
 from characterai import aiocai
-from apicode import aiclient, token
+from apicode import aiclient, token, channel_id
 from imagetotext import ImageCaptioning
 
 # WebSocket URL and token
 ws_url = 'wss://gateway.discord.gg/?v=6&encoding=json'
-token = token  # apicode.py
+
 
 # Initialize ImageCaptioning class
 image_captioning = ImageCaptioning()
@@ -22,7 +22,6 @@ RED = '\033[91m'
 YELLOW = '\033[93m'
 CYAN = '\033[96m'
 BLACK = '\033[30m'
-
 class AnilistHandler:
     def __init__(self):
         self.url = 'https://graphql.anilist.co'
@@ -307,7 +306,7 @@ async def event_loop(ws):
 
 class DiscordSender:
     def __init__(self, bot_token):
-        self.url = f'https://discord.com/api/v10/channels/741223003261763646/messages'
+        self.url = f'https://discord.com/api/v10/channels/{channel_id}/messages'
         self.headers = {
             'Authorization': token,
             'Content-Type': 'application/json'
