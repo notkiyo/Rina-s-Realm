@@ -9,6 +9,16 @@
 
 Meet **RinaBot**—your new best friend on Discord! RinaBot isn’t just any bot; it’s packed with features to make your Discord server lively and fun. Whether you want anime updates, manga insights, character information, or even some quirky AI chat, RinaBot’s got you covered!
 
+
+---
+
+## 🚨 Important Note
+
+**RinaBot operates using a user account rather than the standard bot API.** This allows for a more flexible interaction with Discord but may violate Discord's Terms of Service. Please ensure you understand the implications and proceed with caution when using this method.
+
+---
+
+
 ## 🛠 Features
 
 - **🎬 Anime & Manga Insights**
