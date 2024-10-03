@@ -7,6 +7,7 @@ from anilistpart import AnilistHandler
 from characterai import aiocai
 from apicode import aiclient, token, channel_id
 from imagetotext import ImageCaptioning
+from rec import HandleRec
 
 
 # WebSocket URL and token
@@ -31,11 +32,15 @@ class CommandHandler:
             "-manga": self.handle_manga,
             "-ch": self.handle_character,
             "-rina": self.handle_rina,
+            "-rec" : self.handle_rec,
         }
         self.anilist_handler = AnilistHandler()
         self.discord_sender = discord_sender
+        self.handle_rec = HandleRec()
 
     async def handle_command(self, command, args):
+        
+
         if command in self.handlers:
             await self.handlers[command](args)
         else:
@@ -75,6 +80,16 @@ class CommandHandler:
         await rina_ai.initialize_chat()
         response = await rina_ai.process_incoming_message(args)
         self.discord_sender.send_tagged_message("rina_response", response)
+
+    async def handle_rec(self, args):
+        if args:
+            rec = self.handle_rec.get_similar_anime(args)  
+            if rec:  
+                self.discord_sender.send_tagged_message("rec", f"Similar Anime: {', '.join(rec)}")
+            else:
+                self.discord_sender.send_tagged_message("rec", "No similar anime found.")
+        else:
+            self.discord_sender.send_tagged_message("rec", "No anime name provided.")
 
 class AIPart:
     def __init__(self, char, api_key):
@@ -224,6 +239,7 @@ class DiscordSender:
             "character_info": f"Fetched character info for: {message}",
             "rina_response": f"Rina: {message}",
             "image_caption": f"Generated Caption: {message}",
+            "rec": f"Rec: {message}"
         }
         if tag in tags:
             self.send_message(tags[tag])
