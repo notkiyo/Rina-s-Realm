@@ -25,6 +25,9 @@ Meet **RinaBot**—your new best friend on Discord! RinaBot isn’t just any bot
   - **`-anime [title]`**: Get the latest scoop on your favorite anime.
   - **`-manga [title]`**: Dive into the world of manga with detailed info.
 
+- **🎥 Anime Recommendations**
+  - **`-rec`**: Get personalized anime recommendations based on your preferences.
+
 - **👾 Character Information**
   - **`-ch [character name]`**: Discover cool facts and details about your favorite characters.
 
@@ -33,6 +36,7 @@ Meet **RinaBot**—your new best friend on Discord! RinaBot isn’t just any bot
 
 - **📸 Image Magic**
   - Send an image, and RinaBot will download it and generate a snazzy caption for it. Perfect for spicing up your server with some visual flair!
+
 
 ## 🛠 Work in Progress
 
