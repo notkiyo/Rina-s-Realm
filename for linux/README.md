@@ -12,21 +12,22 @@
 
 2. **Install Poetry** (if not already installed):
    Follow the instructions at [Poetry's official site](https://python-poetry.org/docs/#installation) to install Poetry.
+   (also useable in win to.....)
 
-3. **Install Dependencies**:
+4. **Install Dependencies**:
    ```bash
    poetry install
    ```
 
-4. **Configure Your API Tokens**:
+5. **Configure Your API Tokens**:
    - Open `apicode.py` and enter your Discord bot token and any other required API keys.
 
-5. **Run the Bot**:
+6. **Run the Bot**:
    ```bash
    poetry run python main.py
    ```
 
-6. **Enjoy**: Join your Discord server and start using RinaBot’s commands. Watch your server come to life!
+7. **Enjoy**: Join your Discord server and start using RinaBot’s commands. Watch your server come to life!
 
 ## 📝 Notes
 
