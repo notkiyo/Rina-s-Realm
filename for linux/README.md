@@ -12,8 +12,9 @@
 
 2. **Install Poetry** (if not already installed):
    Follow the instructions at [Poetry's official site](https://python-poetry.org/docs/#installation) to install Poetry.
-   (also useable in win to.....)
 
+   (also useable in win to.....)
+   
 4. **Install Dependencies**:
    ```bash
    poetry install
