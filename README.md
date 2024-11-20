@@ -56,7 +56,7 @@ it need some more work to run but main thing work without any problem
 
 3. **Process Images**: Share images and let RinaBot work its magic by generating captions and keeping your community engaged with fun content.
 
-4. **AI Interaction**: Chat with Rina and enjoy some light-hearted banter with our Character AI. Who knows what Rina might say next?
+4. **AI Interaction**: Chat with Rina and enjoy some light-hearted banter with our (model can be changed in the main code (look at the api file to ). Who knows what Rina might say next?
 
 ![How It Works](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExb2JjN3U0NHZuenVjcXQ3c2hvd2J4cGp2NHNobTlzb2xocDVhMHJwNCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/bMzhPASPFNJORLgUuE/giphy.gif)
 
