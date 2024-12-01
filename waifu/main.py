@@ -45,13 +45,13 @@ class CommandHandler:
         # Initialize memory to store context
         self.memory = []
 
-    async def handle_command(self, command, args):
+    async def handle_command(self, command, args, author):
         if command in self.handlers:
-            await self.handlers[command](args)
+            await self.handlers[command](args, author)
         else:
             self.discord_sender.send_tagged_message("unknown_command", command)
 
-    async def handle_anime(self, args):
+    async def handle_anime(self, args, author):
         if args:
             anime_details = self.anilist_handler.get_anime_details(args)
             if isinstance(anime_details, dict):
@@ -66,35 +66,40 @@ class CommandHandler:
         else:
             self.discord_sender.send_tagged_message("anime_info", "No anime name provided.")
 
-    async def handle_manga(self, args):
+    async def handle_manga(self, args, author):
         if args:
             manga_description = self.anilist_handler.get_manga_description(args)
             self.discord_sender.send_tagged_message("manga_info", manga_description)
         else:
             self.discord_sender.send_tagged_message("manga_info", "No manga name provided.")
 
-    async def handle_character(self, args):
+    async def handle_character(self, args, author):
         if args:
             character_description = self.anilist_handler.get_character_description(args)
             self.discord_sender.send_tagged_message("character_info", character_description)
         else:
             self.discord_sender.send_tagged_message("character_info", "No character name provided.")
 
-    async def handle_rina(self, args):
+    async def handle_rina(self, args, author):
         if args:
-            # Use OpenAI API to generate a response based on user input
+            #send the personality to it in the beginning
+            if not self.memory:  # Check if the memory is empty (conversation is just starting)
+                intro_message = "can you act like a anime girl with like a cute personality or hard one idk but like something along that line from next text on? noo no emotional thing into it just a text pls lol"
+                self.memory.append({"role": "assistant", "content": intro_message})  
+
+            user_message = f"User ({author}): {args}"  # Include the author's username
             completion = self.client.chat.completions.create(
                 model="meta-llama/llama-3.2-11b-vision-instruct:free",
-                messages=self.memory + [{"role": "user", "content": args}]  # Append context to memory
+                messages=self.memory + [{"role": "user", "content": user_message}]  # Append context to memory
             )
-            response = completion.choices[0].message.content  # Get the response 
-            self.memory.append({"role": "user", "content": args})  # Save user input to memory
+            response = completion.choices[0].message.content  # response
+            self.memory.append({"role": "user", "content": user_message})  # Save user memory
             self.memory.append({"role": "assistant", "content": response})  # Save AI response to memory
             self.discord_sender.send_tagged_message("rina_response", response)
         else:
             self.discord_sender.send_tagged_message("rina_response", "No input provided.")
 
-    async def handle_rec(self, args):
+    async def handle_rec(self, args, author):
         if args:
             rec = self.handle_rec.get_similar_anime(args)
             if rec:
@@ -227,7 +232,7 @@ async def event_loop(ws):
                     command = command_parts[0].strip().lower()
                     args = ""
 
-                await command_handler.handle_command(command, args)
+                await command_handler.handle_command(command, args, author)
 
     if content.strip():
         command_parts = content.split(' ', 1)
