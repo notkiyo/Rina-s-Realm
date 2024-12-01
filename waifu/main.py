@@ -4,7 +4,7 @@ import aiohttp
 import websockets
 import requests
 from anilistpart import AnilistHandler
-from apicode import aiclient, token, channel_id,lama
+from apicode import aiclient, token, channel_id, lama
 from imagetotext import ImageCaptioning
 from rec import HandleRec
 from openai import OpenAI
@@ -26,21 +26,24 @@ BLACK = '\033[30m'
 class CommandHandler:
     def __init__(self, discord_sender):
         self.handlers = {
-            "-anime": self.handle_anime,
-            "-manga": self.handle_manga,
-            "-ch": self.handle_character,
+            "-anime": self.handle_anime,  # to look up up-to-date anime
+            "-manga": self.handle_manga,  # for manga
+            "-ch": self.handle_character,  # for character info
             "-rina": self.handle_rina,  # Rina command will use OpenAI API now
-            "-rec": self.handle_rec,
+            "-rec": self.handle_rec,  # rec anime or manga (beta)
         }
         self.anilist_handler = AnilistHandler()
         self.discord_sender = discord_sender
         self.handle_rec = HandleRec()
-
+        
         # Initialize the OpenAI client here
         self.client = OpenAI(
             base_url="https://openrouter.ai/api/v1",  # Your API 
-            api_key=lama,  #  API key 
+            api_key=lama,  # API key 
         )
+        
+        # Initialize memory to store context
+        self.memory = []
 
     async def handle_command(self, command, args):
         if command in self.handlers:
@@ -82,20 +85,19 @@ class CommandHandler:
             # Use OpenAI API to generate a response based on user input
             completion = self.client.chat.completions.create(
                 model="meta-llama/llama-3.2-11b-vision-instruct:free",
-                messages=[{
-                    "role": "user",
-                    "content": args  # User input
-                }]
+                messages=self.memory + [{"role": "user", "content": args}]  # Append context to memory
             )
-            response = completion.choices[0].message.content  # Get the response from OpenAI
+            response = completion.choices[0].message.content  # Get the response 
+            self.memory.append({"role": "user", "content": args})  # Save user input to memory
+            self.memory.append({"role": "assistant", "content": response})  # Save AI response to memory
             self.discord_sender.send_tagged_message("rina_response", response)
         else:
             self.discord_sender.send_tagged_message("rina_response", "No input provided.")
 
     async def handle_rec(self, args):
         if args:
-            rec = self.handle_rec.get_similar_anime(args)  
-            if rec:  
+            rec = self.handle_rec.get_similar_anime(args)
+            if rec:
                 self.discord_sender.send_tagged_message("rec", f"Similar Anime: {', '.join(rec)}")
             else:
                 self.discord_sender.send_tagged_message("rec", "No similar anime found.")
@@ -173,15 +175,22 @@ async def connect():
             asyncio.create_task(heartbeat(ws, heartbeat_interval))
             await event_loop(ws)
 
-async def handle_image_attachment(image_url):
+async def handle_image_attachment(image_url, command_handler):
     await print_response("image_url", f"Image URL: {image_url}")
     image_path = await download_image(image_url)
     await print_response("image_download", f"Image downloaded to {image_path}")
     caption = image_captioning.generate_caption(image_path)
     if caption:
         await print_response("image_caption", f"Generated Caption: {caption}")
+        
+        # Add the caption to the memory context
+        command_handler.memory.append({"role": "user", "content": f"Image caption: {caption}"})
+        
+        # Send the caption as a message to the user
+        command_handler.discord_sender.send_tagged_message("image_caption", caption)
     else:
         await print_response("image_caption", "Failed to generate caption.")
+        command_handler.discord_sender.send_tagged_message("image_caption", "Failed to generate caption.")
 
 async def download_image(image_url, filename="image.png"):
     async with aiohttp.ClientSession() as session:
@@ -207,10 +216,9 @@ async def event_loop(ws):
             if attachments:
                 for attachment in attachments:
                     if attachment['content_type'].startswith('image'):
-                        await handle_image_attachment(attachment['url'])
+                        await handle_image_attachment(attachment['url'], command_handler)
 
-            # Handle commands only if content starts with a recognized command
-            if content:
+            if content.strip():
                 command_parts = content.split(' ', 1)
                 if len(command_parts) > 1:
                     command = command_parts[0].strip().lower()
