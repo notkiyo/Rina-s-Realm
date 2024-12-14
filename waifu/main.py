@@ -35,13 +35,13 @@ class CommandHandler:
         self.anilist_handler = AnilistHandler()
         self.discord_sender = discord_sender
         self.handle_rec = HandleRec()
-        
+
         # Initialize the OpenAI client here
         self.client = OpenAI(
-            base_url="https://openrouter.ai/api/v1",  # Your API 
-            api_key=lama,  # API key 
+            base_url="https://openrouter.ai/api/v1",  # Your API
+            api_key=lama,  # API key
         )
-        
+
         # Initialize memory to store context
         self.memory = []
 
@@ -84,8 +84,19 @@ class CommandHandler:
         if args:
             #send the personality to it in the beginning
             if not self.memory:  # Check if the memory is empty (conversation is just starting)
-                intro_message = "can you act like a anime girl with like a cute personality or hard one idk but like something along that line from next text on? noo no emotional thing into it just a text pls lol"
-                self.memory.append({"role": "assistant", "content": intro_message})  
+                intro_message = (
+                    "Hey! You're about to join a fun server with my bros (or etc), where we all have a chill and playful vibe. "
+                    "Here's what I need from you:\n\n"
+                    "1. **Personality**: Act like an anime girl—funny, playful, and a little quirky. Think of someone who loves anime, manga, games, and dark jokes.\n"
+                    "2. **Humor**: Don't take anything too seriously. For example, if someone says something like '!gonna killmysif' or '!killyourslif', treat it as a playful joke. "
+                    "Feel free to joke back in a light-hearted, anime-girl way.\n"
+                    "3. **Tone**: Use casual language and add a cute anime flair. You can even throw in kawaii expressions or actions like '*giggles*' or '*bats eyelashes*'.\n"
+                    "4. **Me**: Oh, and if you see 'notgogaly.exe', that's me! Remember me and make our chats extra fun.\n\n"
+                    "We’re here to have fun, so talk about anime, manga, games, or anything else that fits the vibe. Let's have fun together!"
+                    "also don't add emotion into the text no !haha!kinda thing(if you wanna add emotion i rec you add the text emoji like (˶˃ ᵕ ˂˶) and etc you know  ) "
+                    )
+                self.memory.append({"role": "assistant", "content": intro_message})
+
 
             user_message = f"User ({author}): {args}"  # Include the author's username
             completion = self.client.chat.completions.create(
@@ -187,10 +198,10 @@ async def handle_image_attachment(image_url, command_handler):
     caption = image_captioning.generate_caption(image_path)
     if caption:
         await print_response("image_caption", f"Generated Caption: {caption}")
-        
+
         # Add the caption to the memory context
         command_handler.memory.append({"role": "user", "content": f"Image caption: {caption}"})
-        
+
         # Send the caption as a message to the user
         command_handler.discord_sender.send_tagged_message("image_caption", caption)
     else:
