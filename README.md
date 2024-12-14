@@ -161,7 +161,6 @@ Got ideas for new features or improvements? We’re all ears! Fork the repo, mak
 
 ## 🥳 Acknowledgments
 
-- **Character AI**: For making RinaBot’s chat possible.
 - **Anilist API**: For providing awesome anime and manga data.
 - **ImageCaptioning**: For adding that extra touch of fun to image sharing!
 - **ChatGPT**: Special thanks to ChatGPT for the invaluable assistance in structuring the code  and README. Your guidance made this project better and more user-friendly!
